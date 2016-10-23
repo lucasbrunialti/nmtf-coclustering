@@ -1,0 +1,5 @@
+g++ -std=c++11 algos.cpp -o algos -I /opt/openblas/include/ -L /opt/openblas/lib -lopenblas -O3 -march=native -larmadillo -lopenblas -llapack -fopenmp
+
+g++ -std=c++11 algos.cpp -o algos -lopenblas -O3 -march=native -larmadillo -lopenblas -llapack -fopenmp
+
+nvcc --x=cu -use_fast_math --std=c++11  algos_gpu.cpp -o algos -O3 -arch=sm_20 -larmadillo -lcublas -lcudart -lhdf5 -lopenblas
